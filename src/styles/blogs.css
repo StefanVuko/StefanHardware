@@ -1,0 +1,125 @@
+.blogs--heading--container {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.blogs--container {
+  min-height: 1000px;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.blogs--container--add {
+  position: absolute;
+  right: 100px;
+  font-size: 50px;
+}
+
+.blogs--container--add:hover {
+  cursor: pointer;
+  color: green;
+}
+
+.blog--container {
+  width: 100%;
+  height: 1100px;
+}
+
+.blog--information--container {
+  width: 100%;
+  height: 15%;
+  display: flex;
+}
+
+.blog--text--container {
+  width: auto;
+  margin-top: 20px;
+  height: 82%;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 10px;
+  position: relative;
+  background-color: var(--background--dark);
+}
+
+.blog--text--container p {
+  padding: 20px;
+}
+
+.blog--header--container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: end;
+}
+
+.blog--header--container h2 {
+  padding-left: 100px;
+  margin: 0px;
+}
+
+.blog--info--container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.blog--type--container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.blog--date--container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.blog--info--container p {
+  padding-right: 100px;
+  margin: 0px;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.blog--text--delete {
+  bottom: 50px;
+  position: absolute;
+  right: 50px;
+  color: white;
+}
+
+.blog--text--delete:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.blog--text--edit {
+  bottom: 50px;
+  position: absolute;
+  right: 100px;
+  color: white;
+}
+
+.blog--text--edit:hover {
+  cursor: pointer;
+  color: yellow;
+}

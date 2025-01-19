@@ -1,15 +1,15 @@
+import BlogComponent from "../components/BlogComponent";
 import Footer from "../components/Footer";
-import HomeContent from "../components/HomeContent";
 import Navbar from "../components/Navbar";
 
-function Home() {
+function Blog() {
   return (
     <>
       <Navbar />
-      <HomeContent></HomeContent>
+      <BlogComponent />
       <Footer />
     </>
   );
 }
 
-export default Home;
+export default Blog;

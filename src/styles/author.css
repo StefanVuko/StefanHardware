@@ -1,0 +1,42 @@
+.author--image--container {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author--image--container img {
+  width: 100%; /* Stretch the image to fill the container's width */
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
+.author--content--container {
+  width: 60%;
+  height: 100%;
+}
+
+.author--content--heading {
+  width: 100%;
+  height: 20%;
+  display: flex;
+}
+
+.author--content--heading h2 {
+  padding-left: 50px;
+}
+
+.author--content--text {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.author--content--text p {
+  margin: 0px;
+  padding-left: 50px;
+}
