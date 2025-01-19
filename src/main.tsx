@@ -5,6 +5,7 @@ import "./styles/index.css";
 import "./styles/homecontent.css";
 import "./styles/author.css";
 import "./styles/blogs.css";
+import "./styles/keyword.css";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>

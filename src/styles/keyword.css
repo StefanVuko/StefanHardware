@@ -1,0 +1,15 @@
+.keyword--container {
+  max-width: 15%;
+  margin-left: 5px;
+  padding-bottom: 5px;
+  height: 20px;
+  border-radius: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.keyword--container p {
+  font-size: 1rem;
+  color: darkgray;
+  margin: 0px;
+}

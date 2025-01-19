@@ -75,7 +75,7 @@
   margin: 10px;
   width: 12%;
   min-height: 80%;
-  max-height: 450px;
+  max-height: 600px;
   position: relative;
 }
 
@@ -89,6 +89,7 @@
   height: 30%;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .blog--preview--text {
@@ -99,4 +100,9 @@
 .blog--preview--text p {
   margin: 5px;
   text-align: left;
+}
+
+.blog--preview--keyword {
+  width: 100%;
+  padding-top: 10px;
 }

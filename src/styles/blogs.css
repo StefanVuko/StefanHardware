@@ -17,7 +17,8 @@
 
 .blogs--container--add {
   position: absolute;
-  right: 100px;
+  right: 270px;
+  top: 170px;
   font-size: 50px;
 }
 
@@ -122,4 +123,91 @@
 .blog--text--edit:hover {
   cursor: pointer;
   color: yellow;
+}
+
+.edit--blog--container {
+  background-color: var(--background--dark);
+  width: 1000px;
+  height: 1000px;
+}
+
+.edit--blog--heading {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit--blog--content {
+  width: 100%;
+  height: 600px;
+  padding: 10px;
+}
+
+.edit--blog--label {
+  color: var(--accent);
+}
+
+.edit--blog--text {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  min-width: 96%;
+  min-height: 50px;
+  color: white;
+  background-color: var(--background);
+  font-size: 1.25rem;
+}
+
+.edit--blog--text--text {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  min-width: 96%;
+  min-height: 300px;
+  color: white;
+  overflow: scroll;
+  background-color: var(--background);
+  font-size: 1.25rem;
+  resize: none;
+  overflow: hidden;
+}
+
+.edit--blog--text input {
+  margin-left: 20px;
+}
+
+.edit--blog--button--container {
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-top: 100px;
+  width: 100%;
+  height: 20%;
+}
+
+.edit--blog--button {
+  background-color: var(--background); /* Button background color */
+  color: var(--accent); /* Text color */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 32px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.edit--blog--button:hover {
+  background-color: var(--accent);
+  color: white; /* Darker blue on hover */
+}
+
+.edit--blog--button:focus {
+  outline: none; /* Remove the focus outline */
+  box-shadow: 0 0 5px var(--background); /* Add a subtle shadow */
+}
+
+.edit--blog--button--container {
+  text-align: center; /* Center the button horizontally */
+  margin-top: 70px; /* Add space above the button */
 }

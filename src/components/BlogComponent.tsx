@@ -2,8 +2,17 @@ import { useEffect, useState } from "react";
 import { CiTrash } from "react-icons/ci";
 import { CiPen } from "react-icons/ci";
 import { Link } from "react-router";
+import Modal from "react-modal";
+import EditBlog from "./EditBlog";
+import Keyword from "./Keyword";
+
+Modal.setAppElement("#root");
 
 function BlogComponent() {
+  function splitKeywords(keywords: any) {
+    return keywords.split(";");
+  }
+
   function getId() {
     const url = window.location.href;
 
@@ -34,13 +43,26 @@ function BlogComponent() {
     date: "",
     type: "",
     text: "",
+    summary: "",
     id: "",
+    keywords: "",
+    isPinned: "",
   });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     let id = getId();
     getBlogData(id ? id : "");
-  });
+  }, []);
 
   return (
     <>
@@ -48,10 +70,13 @@ function BlogComponent() {
         <div className="blog--information--container">
           <div className="blog--header--container">
             <h2>{blog.heading}</h2>
+            {splitKeywords(blog.keywords).map((keyword: any) => {
+              return <Keyword key={keyword} text={keyword} />;
+            })}
           </div>
           <div className="blog--info--container">
             <div className="blog--date--container">
-              <p>{blog.date}</p>
+              <p>Date: {blog.date}</p>
             </div>
             <div className="blog--type--container">
               <p>Type: {blog.type}</p>
@@ -60,7 +85,38 @@ function BlogComponent() {
         </div>
         <div className="blog--text--container">
           <p>{blog.text}</p>
-          <CiPen className="blog--text--edit" />
+          <CiPen onClick={handleOpenModal} className="blog--text--edit" />
+          <Modal
+            isOpen={isModalOpen}
+            onRequestClose={handleCloseModal}
+            contentLabel="Edit Blog Modal"
+            style={{
+              content: {
+                backgroundColor: "var(--background--dark)",
+                top: "50%",
+                left: "50%",
+                right: "auto",
+                bottom: "auto",
+
+                transform: "translate(-50%, -50%)",
+              },
+              overlay: {
+                backgroundColor: "rgba(0, 0, 0, 0.8)", // Change this to set the dimming color
+              },
+            }}
+          >
+            <EditBlog
+              key={blog.id}
+              heading={blog.heading}
+              summary={blog.summary}
+              text={blog.text}
+              type={blog.type}
+              id={blog.id}
+              date={blog.date}
+              keywords={blog.keywords}
+              isPinned={blog.isPinned}
+            ></EditBlog>
+          </Modal>
           <Link onClick={() => deleteBlog(blog.id)} to="/">
             <CiTrash className="blog--text--delete" />
           </Link>

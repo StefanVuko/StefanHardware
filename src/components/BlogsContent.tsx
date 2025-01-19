@@ -1,9 +1,21 @@
 import { useState, useEffect } from "react";
 import BlogPreview from "./BlogPreview";
 import { CiCirclePlus } from "react-icons/ci";
+import Modal from "react-modal";
+import AddBlog from "./AddBlog";
 
 function BlogsContent() {
   const [blogs, setBlogs] = useState([]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/getBlogs`, {
@@ -19,7 +31,31 @@ function BlogsContent() {
         <h2>My Blogs</h2>
       </div>
       <div className="blogs--container">
-        <CiCirclePlus className="blogs--container--add" />
+        <CiCirclePlus
+          onClick={handleOpenModal}
+          className="blogs--container--add"
+        />
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={handleCloseModal}
+          contentLabel="Edit Blog Modal"
+          style={{
+            content: {
+              backgroundColor: "var(--background--dark)",
+              top: "50%",
+              left: "50%",
+              right: "auto",
+              bottom: "auto",
+
+              transform: "translate(-50%, -50%)",
+            },
+            overlay: {
+              backgroundColor: "rgba(0, 0, 0, 0.8)", // Change this to set the dimming color
+            },
+          }}
+        >
+          <AddBlog />
+        </Modal>
         {blogs.map((blog: any) => {
           return (
             <BlogPreview

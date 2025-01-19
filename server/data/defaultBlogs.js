@@ -7,6 +7,8 @@ let blogs = [
     id: 1,
     date: "18.01.2025",
     type: "AI",
+    keywords: "Hardware;Graphics",
+    isPinned: true,
   },
   {
     heading: "AMD Ryzen",
@@ -16,6 +18,8 @@ let blogs = [
     id: 2,
     date: "18.01.2025",
     type: "AI",
+    keywords: "Hardware;CPU",
+    isPinned: true,
   },
   {
     heading: "Apple M2 Chip",
@@ -25,6 +29,8 @@ let blogs = [
     id: 3,
     date: "18.01.2025",
     type: "AI",
+    keywords: "Hardware;CPU",
+    isPinned: true,
   },
   {
     heading: "Intel’s 14th Gen",
@@ -34,6 +40,8 @@ let blogs = [
     id: 4,
     date: "18.01.2025",
     type: "AI",
+    keywords: "Hardware;CPU",
+    isPinned: false,
   },
   {
     heading: "Samsung SSDs",
@@ -43,6 +51,8 @@ let blogs = [
     id: 5,
     date: "18.01.2025",
     type: "AI",
+    keywords: "Hardware;Data",
+    isPinned: false,
   },
 ];
 

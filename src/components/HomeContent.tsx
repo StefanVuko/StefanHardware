@@ -11,7 +11,7 @@ function HomeContent() {
       method: "GET",
     })
       .then((resp) => resp.json())
-      .then((resp) => setPinnedBlogs(resp.pinnedBlogs));
+      .then((resp) => setPinnedBlogs(resp));
   }, []);
 
   return (
@@ -44,6 +44,7 @@ function HomeContent() {
                 heading={blog.heading}
                 summary={blog.summary}
                 id={blog.id}
+                keywords={blog.keywords}
               ></BlogPreview>
             );
           })}
