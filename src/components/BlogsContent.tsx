@@ -6,7 +6,8 @@ import AddBlog from "./AddBlog";
 
 function BlogsContent() {
   const [blogs, setBlogs] = useState([]);
-
+  const [filteredBlogs, setFilteredBlogs] = useState([]); // State for filtered blogs
+  const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -22,13 +23,34 @@ function BlogsContent() {
       method: "GET",
     })
       .then((resp) => resp.json())
-      .then((resp) => setBlogs(resp.blogs));
+      .then((resp) => {
+        setBlogs(resp.blogs);
+        setFilteredBlogs(resp.blogs);
+      });
   }, []);
+
+  useEffect(() => {
+    const filtered = blogs.filter((blog) =>
+      // @ts-ignore
+      blog.heading.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredBlogs(filtered);
+  }, [searchQuery, blogs]);
 
   return (
     <>
       <div className="blogs--heading--container">
-        <h2>My Blogs</h2>
+        <div className="blogs--heading">
+          <h2>My Blogs</h2>
+        </div>
+        <div className="blogs--searchbar">
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="Search..."
+            onChange={(e) => setSearchQuery(e.target.value)}
+          ></input>
+        </div>
       </div>
       <div className="blogs--container">
         <CiCirclePlus
@@ -56,13 +78,14 @@ function BlogsContent() {
         >
           <AddBlog />
         </Modal>
-        {blogs.map((blog: any) => {
+        {filteredBlogs.map((blog: any) => {
           return (
             <BlogPreview
               key={blog.id}
               heading={blog.heading}
               summary={blog.summary}
               id={blog.id}
+              keywords={blog.keywords}
             ></BlogPreview>
           );
         })}

@@ -101,6 +101,20 @@ app.put("/updateBlog", (req, res) => {
   res.sendStatus(200);
 });
 
+app.patch("/updateBlogPinStatus", (req, res) => {
+  const id = req.query.id;
+  blogs.blogs.forEach((blog) => {
+    if (blog.id == id) {
+      index = blogs.blogs.indexOf(blog);
+      return;
+    }
+  });
+
+  blogs.blogs[index].isPinned = !blogs.blogs[index].isPinned;
+
+  res.sendStatus(200);
+});
+
 app.delete("/deleteBlogById", (req, res) => {
   const id = req.query.id;
   let foundBlog = {};

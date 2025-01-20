@@ -54,6 +54,61 @@ let blogs = [
     keywords: "Hardware;Data",
     isPinned: false,
   },
+  {
+    heading: "iPhone 15",
+    text: "Apple's latest iPhone 15 series features groundbreaking hardware improvements, including the new A17 Bionic chip, which offers unmatched processing power and energy efficiency. With a titanium frame, advanced camera systems, and USB-C support for faster charging, this release marks a significant shift in Apple's design philosophy. This blog explores how these upgrades elevate the iPhone experience.",
+    summary:
+      "The iPhone 15 introduces revolutionary hardware upgrades, making it the most advanced iPhone yet.",
+    id: 6,
+    date: "19.01.2025",
+    type: "Human",
+    keywords: "Phones;Apple;Hardware",
+    isPinned: false,
+  },
+  {
+    heading: "Ryzen 8000",
+    text: "AMD has unveiled its Ryzen 8000 series processors, boasting a new 4nm architecture that delivers record-breaking performance and power efficiency. With enhanced AI processing and higher core counts, these CPUs cater to gamers, content creators, and professionals alike. This blog dives into the specs, benchmarks, and how AMD continues to challenge Intel in the CPU race.",
+    summary:
+      "AMD's Ryzen 8000 series offers cutting-edge performance and efficiency, shaking up the CPU market once again.",
+    id: 7,
+    date: "19.01.2025",
+    type: "Human",
+    keywords: "Processors;AMD;Hardware",
+    isPinned: false,
+  },
+  {
+    heading: "Galaxy S25",
+    text: "Samsung’s Galaxy S25 introduces next-level hardware, including a stunning 6.9-inch Dynamic AMOLED display with a 240Hz refresh rate and the new Exynos 2500 chip. Packed with a 200MP camera, massive battery life, and enhanced AI features, this flagship smartphone sets a new standard for mobile technology. Dive into the specs and why it’s a game-changer for Samsung fans.",
+    summary:
+      "The Galaxy S25 impresses with innovative hardware and features, cementing Samsung’s leadership in smartphones.",
+    id: 8,
+    date: "19.01.2025",
+    type: "Human",
+    keywords: "Phones;Samsung;Hardware",
+    isPinned: false,
+  },
+  {
+    heading: "Intel’s GPUs",
+    text: "Intel has taken a bold step into the GPU market with its Arc Battlemage series, promising competitive performance against NVIDIA and AMD. With a focus on ray tracing, AI-driven upscaling, and affordable pricing, Intel aims to disrupt the graphics card industry. This blog analyzes the specs, pricing, and the potential impact on gamers and creators.",
+    summary:
+      "Intel’s Arc Battlemage GPUs bring fresh competition to the GPU market, delivering powerful features at an affordable price.",
+    id: 9,
+    date: "19.01.2025",
+    type: "Human",
+    keywords: "Hardware;Graphics;Intel",
+    isPinned: false,
+  },
+  {
+    heading: "OnePlus 13 Pro",
+    text: "The OnePlus 13 Pro combines cutting-edge hardware and sleek design, featuring the Snapdragon 8 Gen 4 processor, a vibrant LTPO 3.0 AMOLED display, and lightning-fast 150W charging. With improved camera capabilities and a focus on premium performance, OnePlus continues to challenge established smartphone giants. This blog delves into what makes the 13 Pro a worthy flagship contender.",
+    summary:
+      "The OnePlus 13 Pro offers flagship-level hardware and performance, staying true to its ‘flagship killer’ roots.",
+    id: 10,
+    date: "19.01.2025",
+    type: "Human",
+    keywords: "Phones;OnePlus;Hardware",
+    isPinned: false,
+  },
 ];
 
 module.exports.blogs = blogs;

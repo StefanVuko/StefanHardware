@@ -1,6 +1,37 @@
 .blogs--heading--container {
   width: 100%;
   height: 250px;
+}
+
+.blogs--heading {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  position: relative;
+}
+
+#search-bar {
+  background-color: var(--background--dark);
+  width: 25%;
+  height: 50%;
+  border-radius: 15px;
+  border: 0px;
+  padding: 8px 8px;
+  outline: none;
+  color: white;
+  box-shadow: none;
+  font-size: 1rem;
+}
+
+#search-bar:focus {
+  border: 1px solid var(--accent);
+}
+
+.blogs--searchbar {
+  width: 100%;
+  height: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +55,7 @@
 
 .blogs--container--add:hover {
   cursor: pointer;
-  color: green;
+  color: lightgreen;
 }
 
 .blog--container {
@@ -114,10 +145,27 @@
 }
 
 .blog--text--edit {
-  bottom: 50px;
+  bottom: 47px;
   position: absolute;
   right: 100px;
   color: white;
+}
+
+.blog--text--edit:hover {
+  cursor: pointer;
+  color: yellow;
+}
+
+.blog--text--pin {
+  bottom: 47px;
+  position: absolute;
+  right: 150px;
+  color: white;
+}
+
+.blog--text--pin:hover {
+  cursor: pointer;
+  color: yellow;
 }
 
 .blog--text--edit:hover {

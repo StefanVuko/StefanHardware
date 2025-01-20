@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CiTrash } from "react-icons/ci";
 import { CiPen } from "react-icons/ci";
+import { CiBookmarkPlus, CiBookmarkRemove } from "react-icons/ci";
 import { Link } from "react-router";
 import Modal from "react-modal";
 import EditBlog from "./EditBlog";
@@ -36,6 +37,12 @@ function BlogComponent() {
     fetch(`http://localhost:5000/deleteBlogById?id=${id}`, {
       method: "DELETE",
     });
+  };
+
+  const updateBlogPinStatus = async (id: string) => {
+    fetch(`http://localhost:5000/updateBlogPinStatus?id=${id}`, {
+      method: "PATCH",
+    }).then((resp) => console.log(resp.status));
   };
 
   const [blog, setBlog] = useState({
@@ -101,7 +108,7 @@ function BlogComponent() {
                 transform: "translate(-50%, -50%)",
               },
               overlay: {
-                backgroundColor: "rgba(0, 0, 0, 0.8)", // Change this to set the dimming color
+                backgroundColor: "rgba(0, 0, 0, 0.8)",
               },
             }}
           >
@@ -119,6 +126,13 @@ function BlogComponent() {
           </Modal>
           <Link onClick={() => deleteBlog(blog.id)} to="/">
             <CiTrash className="blog--text--delete" />
+          </Link>
+          <Link onClick={() => updateBlogPinStatus(blog.id)} to="/">
+            {blog.isPinned ? (
+              <CiBookmarkRemove className="blog--text--pin" />
+            ) : (
+              <CiBookmarkPlus className="blog--text--pin" />
+            )}
           </Link>
         </div>
       </div>
