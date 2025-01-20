@@ -46,7 +46,7 @@ function EditBlog(props: any) {
 
     console.log(updatedBlog);
 
-    fetch(`/updateBlog`, {
+    fetch(`/api/updateBlog`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

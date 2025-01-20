@@ -51,7 +51,7 @@ function AddBlog() {
 
     console.log(newBlog);
 
-    fetch(`/createNewBlog`, {
+    fetch(`/api/createNewBlog`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

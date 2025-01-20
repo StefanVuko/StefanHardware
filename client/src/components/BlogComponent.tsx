@@ -25,7 +25,7 @@ function BlogComponent() {
   }
 
   const getBlogData = async (id: string) => {
-    fetch(`/getBlogById?id=${id}`, {
+    fetch(`/api/getBlogById?id=${id}`, {
       method: "GET",
     })
       .then((resp) => resp.json())
@@ -34,13 +34,13 @@ function BlogComponent() {
 
   const deleteBlog = async (id: string) => {
     console.log("deleted");
-    fetch(`/deleteBlogById?id=${id}`, {
+    fetch(`/api/deleteBlogById?id=${id}`, {
       method: "DELETE",
     });
   };
 
   const updateBlogPinStatus = async (id: string) => {
-    fetch(`/updateBlogPinStatus?id=${id}`, {
+    fetch(`/api/updateBlogPinStatus?id=${id}`, {
       method: "PATCH",
     }).then((resp) => console.log(resp.status));
   };

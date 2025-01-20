@@ -1,14 +1,32 @@
 import { useState, useEffect } from "react";
 import BlogPreview from "./BlogPreview";
 import { CiCirclePlus } from "react-icons/ci";
+import { CiFilter } from "react-icons/ci";
 import Modal from "react-modal";
 import AddBlog from "./AddBlog";
+import Filter from "./Filter";
 
 function BlogsContent() {
   const [blogs, setBlogs] = useState([]);
   const [filteredBlogs, setFilteredBlogs] = useState([]); // State for filtered blogs
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [sortOrder, setSortOrder] = useState("newest");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+  const handleSortChange = (order: string) => {
+    setSortOrder(order);
+  };
+
+  const handleTagChange = (tag: string) => {
+    setSelectedTags(
+      (prevTags) =>
+        prevTags.includes(tag)
+          ? prevTags.filter((t) => t !== tag) // Remove tag if it's already selected
+          : [...prevTags, tag] // Add tag if it's not selected
+    );
+  };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -19,7 +37,7 @@ function BlogsContent() {
   };
 
   useEffect(() => {
-    fetch(`/getBlogs`, {
+    fetch(`/api/getBlogs`, {
       method: "GET",
     })
       .then((resp) => resp.json())
@@ -30,12 +48,26 @@ function BlogsContent() {
   }, []);
 
   useEffect(() => {
-    const filtered = blogs.filter((blog) =>
-      // @ts-ignore
-      blog.heading.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredBlogs(filtered);
-  }, [searchQuery, blogs]);
+    let updatedBlogs = blogs;
+
+    // Filter by search query
+    if (searchQuery) {
+      updatedBlogs = updatedBlogs.filter((blog) =>
+        //@ts-ignore
+        blog.heading.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Filter by selected tags
+    if (selectedTags.length > 0) {
+      updatedBlogs = updatedBlogs.filter((blog) =>
+        //@ts-ignore
+        selectedTags.some((tag) => blog.keywords.includes(tag))
+      );
+    }
+
+    setFilteredBlogs(updatedBlogs);
+  }, [searchQuery, blogs, selectedTags, sortOrder]);
 
   return (
     <>
@@ -50,6 +82,18 @@ function BlogsContent() {
             placeholder="Search..."
             onChange={(e) => setSearchQuery(e.target.value)}
           ></input>
+          <CiFilter
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+            id="blogs--filter"
+          />
+          {isFilterOpen ? (
+            <Filter
+              onSortChange={handleSortChange}
+              onTagChange={handleTagChange}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </div>
       <div className="blogs--container">
