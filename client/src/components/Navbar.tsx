@@ -1,7 +1,11 @@
 import { AiOutlineHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 function Navbar() {
+  const { username } = useContext(AuthContext);
+
   return (
     <nav>
       <div className="navbar--left">
@@ -22,7 +26,7 @@ function Navbar() {
             <Link to="/about">About Me</Link>
           </li>
           <li className="navbar--item">
-            <Link to="/login">Login</Link>
+            <Link to="/login">{username == "" ? "Login" : "Logout"}</Link>
           </li>
         </ul>
       </div>
