@@ -7,7 +7,7 @@ function HomeContent() {
   const [pinnedBlogs, setPinnedBlogs] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/getPinnedBlogs`, {
+    fetch(`/getPinnedBlogs`, {
       method: "GET",
     })
       .then((resp) => resp.json())

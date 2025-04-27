@@ -37,7 +37,7 @@ function BlogsContent() {
   };
 
   useEffect(() => {
-    fetch(`/api/getBlogs`, {
+    fetch(`/getBlogs`, {
       method: "GET",
     })
       .then((resp) => resp.json())
