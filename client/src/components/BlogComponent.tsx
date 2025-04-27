@@ -6,14 +6,10 @@ import { Link } from "react-router";
 import Modal from "react-modal";
 import EditBlog from "./EditBlog";
 import Keyword from "./Keyword";
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
 
 Modal.setAppElement("#root");
 
 function BlogComponent() {
-  const { username } = useContext(AuthContext);
-
   function splitKeywords(keywords: any) {
     return keywords.split(";");
   }
@@ -96,12 +92,7 @@ function BlogComponent() {
         </div>
         <div className="blog--text--container">
           <p>{blog.text}</p>
-          {username == "admin" ? (
-            <CiPen onClick={handleOpenModal} className="blog--text--edit" />
-          ) : (
-            ""
-          )}
-
+          <CiPen onClick={handleOpenModal} className="blog--text--edit" />
           <Modal
             isOpen={isModalOpen}
             onRequestClose={handleCloseModal}
@@ -133,24 +124,16 @@ function BlogComponent() {
               isPinned={blog.isPinned}
             ></EditBlog>
           </Modal>
-          {username == "admin" ? (
-            <Link onClick={() => deleteBlog(blog.id)} to="/">
-              <CiTrash className="blog--text--delete" />
-            </Link>
-          ) : (
-            ""
-          )}
-          {username == "admin" ? (
-            <Link onClick={() => updateBlogPinStatus(blog.id)} to="/">
-              {blog.isPinned ? (
-                <CiBookmarkRemove className="blog--text--pin" />
-              ) : (
-                <CiBookmarkPlus className="blog--text--pin" />
-              )}
-            </Link>
-          ) : (
-            ""
-          )}
+          <Link onClick={() => deleteBlog(blog.id)} to="/">
+            <CiTrash className="blog--text--delete" />
+          </Link>
+          <Link onClick={() => updateBlogPinStatus(blog.id)} to="/">
+            {blog.isPinned ? (
+              <CiBookmarkRemove className="blog--text--pin" />
+            ) : (
+              <CiBookmarkPlus className="blog--text--pin" />
+            )}
+          </Link>
         </div>
       </div>
     </>

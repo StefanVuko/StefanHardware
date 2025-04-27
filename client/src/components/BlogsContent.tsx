@@ -5,8 +5,6 @@ import { CiFilter } from "react-icons/ci";
 import Modal from "react-modal";
 import AddBlog from "./AddBlog";
 import Filter from "./Filter";
-import { AuthContext } from "../contexts/AuthContext";
-import { useContext } from "react";
 
 function BlogsContent() {
   const [blogs, setBlogs] = useState([]);
@@ -71,8 +69,6 @@ function BlogsContent() {
     setFilteredBlogs(updatedBlogs);
   }, [searchQuery, blogs, selectedTags, sortOrder]);
 
-  const { username } = useContext(AuthContext);
-
   return (
     <>
       <div className="blogs--heading--container">
@@ -101,15 +97,10 @@ function BlogsContent() {
         </div>
       </div>
       <div className="blogs--container">
-        {username == "admin" ? (
-          <CiCirclePlus
-            onClick={handleOpenModal}
-            className="blogs--container--add"
-          />
-        ) : (
-          ""
-        )}
-
+        <CiCirclePlus
+          onClick={handleOpenModal}
+          className="blogs--container--add"
+        />
         <Modal
           isOpen={isModalOpen}
           onRequestClose={handleCloseModal}

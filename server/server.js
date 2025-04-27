@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const blogs = require("./data/defaultBlogs");
-const userData = require("./data/userData");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -128,32 +127,6 @@ app.delete("/deleteBlogById", (req, res) => {
 
   const index = blogs.blogs.indexOf(foundBlog);
   blogs.blogs.splice(index, 1);
-});
-
-app.post("/login", (req, res) => {
-  const { username } = req.body;
-  const { password } = req.body;
-
-  let isLoggedIn = false;
-
-  userData.userData.forEach((user) => {
-    if (user.username == username) {
-      if (user.password == password) isLoggedIn = true;
-    }
-  });
-
-  isLoggedIn ? res.sendStatus(200) : res.sendStatus(401);
-});
-
-app.post("/register", (req, res) => {
-  const { username } = req.body;
-  const { password } = req.body;
-
-  const newUser = { username, password };
-
-  userData.userData.push(newUser);
-
-  res.sendStatus(200);
 });
 
 app.use(express.static(path.join(__dirname, "dist")));
